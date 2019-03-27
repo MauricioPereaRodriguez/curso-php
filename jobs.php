@@ -2,37 +2,24 @@
 
 require_once 'vendor/autoload.php';
 
-use App\Models\{Job, Project, Printable};
-
-$job1 = new Job('PHP Developer', 'This is an awesome job!!!');
-$job1->months = 16;
-
-$job2 = new Job('Python Developer', 'This is an awesome job!!!');
-$job2->months = 24;
-
-$job3 = new Job('Devops', 'This is an awesome job!!!');
-$job3->months = 32;
+use App\Models\{Job, Project};
 
 $project1 = new Project('Project 1', 'Description 1');
 
-$jobs = [
-    $job1,
-    $job2,
-    $job3
-  ];
+$jobs = Job::all();
 
 $projects = [
     $project1
 ];
   
-function printElement(Printable $job) {
-    if($job->visible == false) {
-      return;
-    }
+function printElement( $job) {
+    // if($job->visible == false) {
+    //   return;
+    // }
   
     echo '<li class="work-position">';
-    echo '<h5>' . $job->getTitle() . '</h5>';
-    echo '<p>' . $job->getDescription() . '</p>';
+    echo '<h5>' . $job->title . '</h5>';
+    echo '<p>' . $job->description . '</p>';
     echo '<p>' . $job->getDurationAsString() . '</p>';
     echo '<strong>Achievements:</strong>';
     echo '<ul>';
