@@ -4,13 +4,8 @@ require_once 'vendor/autoload.php';
 
 use App\Models\{Job, Project};
 
-$project1 = new Project('Project 1', 'Description 1');
-
-$jobs = Job::all();
-
-$projects = [
-    $project1
-];
+$jobs       = Job::all();
+$projects   = Project::all();
   
 function printElement( $job) {
     // if($job->visible == false) {
